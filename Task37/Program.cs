@@ -22,12 +22,28 @@ int [] MultiArr(int [] array)
     for (int i=0;i<array.Length/2;i++) result[i]=array[i]*array[array.Length-1-i];
     return result;
 }
+int [] InAr (string array)
+{
+    string [] Nums = array.Split(" ");
+    int [] NumInt = new int[Nums.Length];
+    for (int i = 0; i<Nums.Length; i++) NumInt[i]=int.Parse(Nums[i]);
+    return NumInt;
+}
+void PrintAr(int [] array)
+{
+    for (int i =0; i<array.Length; i++) System.Console.Write($" {array[i]} ");
+    System.Console.WriteLine();
+}
 Console.Clear();
-int size = Enter("Введите размер массива");
-while (size%2==1) size = Enter("Число элементов долно быть четное. Введите размер массива");
-int min = Enter("Введите мин значение элемента");
-int max = Enter("Введите максим значение элемента");
-int[] array = GetRanArr(size, min, max);
+//int size = Enter("Введите размер массива");
+//while (size%2==1) size = Enter("Число элементов долно быть четное. Введите размер массива");
+//int min = Enter("Введите мин значение элемента");
+//int max = Enter("Введите максим значение элемента");
+//int[] array = GetRanArr(size, min, max);
+System.Console.WriteLine("Введите массив");
+String S = Console.ReadLine();
+int [] array = InAr(S);
+PrintAr(array);
 Console.WriteLine($"{String.Join(" ", array)}");
 System.Console.WriteLine(String.Join(" ",MultiArr(array)));
 
